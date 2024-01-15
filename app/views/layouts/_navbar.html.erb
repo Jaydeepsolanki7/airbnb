@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary" style="height: 80px;">
+  <div class="container-fluid">
+    <a class="navbar-brand ms-2" href="<%= root_path %>">
+      <%= image_tag("realairbnb.png", alt: "airbnb", width: 25, height: 26) %>
+    </a>
+    <a class="navbar-brand" style="color: #ea6767; font-weight: bold;" href="<%= root_path %>">airbnb</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <form class="d-flex mx-auto" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+      <% if user_signed_in? %> 
+      <div class="nav-item dropdown ">
+        <a class="nav-link dropdown-toggle me-3" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <%= current_user.name%>
+          <%# <%= link_to "Create New Order", new_order_path, class: "btn btn-primary" %>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to 'Edit Profile ', edit_user_registration_path,class:"dropdown-item my-1 me-auto" %>
+          <li><a class="dropdown-item" href="<%=orders_path%>">My Orders</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <%= button_to "Sign out", destroy_user_session_path, class: "dropdown-item  my-1 me-auto", method: :delete %> 
+        </ul>
+      </div>
+    <%else%>
+      <div class="d-flex"><%= link_to "Sign in /", new_user_session_path, class:"nav-link active"  %>
+      <%= link_to "Sign up", new_user_registration_path	, class:"nav-link active" %></div>
+    <%end%>
+    </div>
+  </div>
+</nav>
