@@ -1,0 +1,3 @@
+# config/esbuild.yml
+entry_points:
+  - "app/javascript/application.js"

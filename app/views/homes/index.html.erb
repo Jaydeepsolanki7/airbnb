@@ -1,1 +1,6 @@
 <h1>Homes#index</h1>
+<div data-controller="greeting">
+  <input data-target="greeting.name" type="text" placeholder="Enter your name">
+  <button data-action="click->greeting#greet">Greet</button>
+  <p data-target="greeting.output"></p>
+</div>

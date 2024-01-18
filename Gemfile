@@ -16,7 +16,9 @@ gem "puma", ">= 5.0"
 
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
 gem "jsbundling-rails"
-gem "devise" 
+gem "devise"
+gem 'faker'
+
 
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
@@ -51,6 +53,10 @@ gem "bootsnap", require: false
 
 group :development, :test do
   gem 'rspec-rails', '~> 6.1.0'
+  gem 'shoulda-matchers'
+  gem 'factory_bot_rails'
+
+  
 
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mswin mswin64 mingw x64_mingw ]
